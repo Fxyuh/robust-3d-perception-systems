@@ -1,0 +1,7 @@
+std_msgs/Header header
+string sensor_frame
+uint32 sequence_index
+uint32 frame_count
+string scene_name
+string sample_token
+geometry_msgs/Pose lidar_pose_global

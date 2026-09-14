@@ -1,0 +1,29 @@
+{
+  "dataset": "nuScenes v1.0-mini mini_val",
+  "sample_count": 81,
+  "association": "class-wise Hungarian",
+  "motion_model": "constant-velocity Kalman filter in the global frame",
+  "official_metrics": {
+    "AMOTA": 0.6552473172804439,
+    "AMOTP_m": 0.5681484918127194,
+    "MOTA": 0.628760904356891,
+    "recall": 0.7069287917129302,
+    "identity_switches": 58,
+    "fragments": 24
+  },
+  "class_AMOTA": {
+    "bicycle": 0.275,
+    "bus": 0.95,
+    "car": 0.7142472400346949,
+    "motorcycle": 0.5737661390272397,
+    "pedestrian": 0.5759705246207288,
+    "trailer": null,
+    "truck": 0.8425
+  },
+  "latency_ms": {
+    "global_Hungarian_mean": 4.728,
+    "classwise_Hungarian_mean": 2.973,
+    "relative_reduction_percent": 37.1
+  },
+  "note": "The mini-val split has no trailer ground truth. These are mini-set integration results, not full nuScenes validation results."
+}

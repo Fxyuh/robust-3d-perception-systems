@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Build and ROS 2 outputs
+build/
+install/
+log/
+cpp/build/
+
+# Datasets, training outputs and model artifacts
+data/
+checkpoints/
+work_dirs/
+*.pth
+*.pt
+*.onnx
+*.engine
+*.plan
+*.npz
+*.cpd
+
+# Local environments and editor files
+.venv/
+venv/
+.vscode/
+.idea/

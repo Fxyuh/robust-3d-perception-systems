@@ -1,0 +1,41 @@
+{
+  "dataset": "nuScenes v1.0-mini mini_val",
+  "sample_count": 81,
+  "score_threshold": 0.1,
+  "decoded_box_count": 16026,
+  "official_filtered_box_count": 13253,
+  "pytorch": {
+    "mAP": 0.41095255028632194,
+    "NDS": 0.4820459199417163
+  },
+  "tensorrt_cpp": {
+    "mAP": 0.4126665001050033,
+    "NDS": 0.4803362702994415
+  },
+  "tensorrt_minus_pytorch": {
+    "mAP": 0.0017139498186813373,
+    "NDS": -0.0017096496422748242
+  },
+  "latency_ms": {
+    "scope": "point tensor to decoded 3D boxes; file I/O excluded",
+    "mean": 15.19571267,
+    "p50": 14.99554,
+    "p95": 16.023728,
+    "max": 25.973845
+  },
+  "point_file_load_ms": {
+    "mean": 5.04718978,
+    "p50": 4.989904,
+    "p95": 5.737494,
+    "max": 7.15955
+  },
+  "gpu_memory_mib": {
+    "measurement": "NVML device used-memory, sampled every 1 ms",
+    "device_baseline": 3115.515625,
+    "device_peak": 3809.42578125,
+    "peak_delta": 693.91015625,
+    "explicit_cuda_buffers": 94.1652832,
+    "process_accounting_available": false,
+    "note": "WSL2 did not expose per-process used memory; the device baseline-to-peak delta assumes no concurrent workload change."
+  }
+}

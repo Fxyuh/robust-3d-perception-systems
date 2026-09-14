@@ -1,0 +1,9 @@
+uint64 track_id
+bool confirmed
+float32[9] box
+float32 score
+int32 label
+string class_name
+uint32 age
+uint32 hits
+uint32 time_since_update
