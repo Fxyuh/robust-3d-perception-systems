@@ -26,3 +26,8 @@ work_dirs/
 venv/
 .vscode/
 .idea/
+
+# Native inference binary artifacts
+*.so
+*.f16
+*.f32

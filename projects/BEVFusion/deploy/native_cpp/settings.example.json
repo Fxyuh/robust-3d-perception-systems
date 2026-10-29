@@ -1,0 +1,18 @@
+{
+  "mmdet3d_root": "/absolute/path/to/mmdetection3d-v1.4.0",
+  "data_root": "/absolute/path/to/nuscenes",
+  "checkpoint": "/absolute/path/to/robust-epoch-4.pth",
+  "model_python": "/absolute/path/to/existing-conda-env/bin/python",
+  "extra_python_paths": [
+    "/absolute/path/to/existing-onnx-tensorrt/site-packages"
+  ],
+  "ros_python": "/usr/bin/python3",
+  "ros_setup": "/opt/ros/humble/setup.bash",
+  "native_source": "/absolute/path/to/pinned-Lidar_AI_Solution-checkout",
+  "cuda_root": "/absolute/path/to/existing-cuda-toolkit",
+  "tensorrt_include": "/absolute/path/to/existing-TensorRT/include",
+  "tensorrt_lib_dir": "/absolute/path/to/existing-tensorrt_libs",
+  "protobuf_root": "/absolute/path/to/existing-protobuf",
+  "abseil_root": "/absolute/path/to/existing-abseil",
+  "jobs": 4
+}

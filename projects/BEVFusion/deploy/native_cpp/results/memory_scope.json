@@ -1,0 +1,10 @@
+{
+  "measurement": "historical separate 81-frame native C++ run",
+  "sample_interval_ms": 5,
+  "device_samples": 639,
+  "nvml_process_samples": 0,
+  "process_peak_gib": null,
+  "whole_device_baseline_gib": 3.0378952026367188,
+  "whole_device_peak_increase_gib": 2.1846656799316406,
+  "scope": "Whole-device increase above baseline; WSL2 per-process NVML unavailable. Not process peak VRAM."
+}

@@ -1,0 +1,58 @@
+{
+  "source": "official MMDetection3D v1.4.0 source snapshot, no local experimental Python modules",
+  "mmdet3d_commit": "fe25f7a51d36e3702f961e198894580d83c4387b",
+  "vendor_commit": "7c1623f234d5a9794fd862c9456f68f87ae7b900",
+  "working_directory": "/tmp",
+  "existing_environment_and_compiled_project_ops_reused": true,
+  "all_engines_and_core_built_in_fresh_directories": true,
+  "verification_mode": "All six stages completed; resumed after CUDA include and evaluator annotation path fixes. Failed directories/logs were preserved.",
+  "stages": [
+    {
+      "name": "export",
+      "seconds": 86.187
+    },
+    {
+      "name": "prepare",
+      "seconds": 26.71
+    },
+    {
+      "name": "core",
+      "seconds": 15.194
+    },
+    {
+      "name": "ros_build",
+      "seconds": 36.471
+    },
+    {
+      "name": "replay",
+      "seconds": 4.664
+    },
+    {
+      "name": "score",
+      "seconds": 28.49
+    }
+  ],
+  "validation": {
+    "frames": 81,
+    "six_camera_frames": 81,
+    "nonempty_lidar_frames": 81,
+    "unresolved_linked_libraries": 0,
+    "pytorch_libraries_linked": false
+  },
+  "source_snapshots_recorded_per_stage": true,
+  "checkpoint_sha256": "e422916d9a75ea3c1c2c31e98d260ae0bf4fd179d021573054056b504c290ae9",
+  "results": {
+    "backend": "ROS2 native C++/CUDA/TensorRT, no PyTorch inference runtime",
+    "count": 81,
+    "latency_scope": "calibration update + H2D + native CUDA/TRT + C++ decode; ROS2 roundtrip includes packet transport; offline image preprocessing and disk reads excluded",
+    "first_model_ms": 39.011544,
+    "first_ros2_roundtrip_ms": 61.945185996592045,
+    "model_p50_ms": 29.946235,
+    "model_p95_ms": 31.14422,
+    "ros2_roundtrip_p50_ms": 45.34146600053646,
+    "ros2_roundtrip_p95_ms": 55.5628670117585,
+    "dataset": "nuScenes v1.0-mini val",
+    "mAP": 0.5309585730109567,
+    "NDS": 0.5502915885979356
+  }
+}

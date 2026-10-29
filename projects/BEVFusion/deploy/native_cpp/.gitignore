@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.so
+*.onnx
+*.engine
+*.pth
+*.npz
+settings.local.json
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/

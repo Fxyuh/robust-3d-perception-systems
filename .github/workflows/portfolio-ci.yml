@@ -23,20 +23,21 @@ jobs:
           python -m compileall -q \
             configs \
             projects/CenterPointDeployment/tools \
-            projects/CenterPointDeployment/ros2/centerpoint_ros/launch
+            projects/CenterPointDeployment/ros2/centerpoint_ros/launch \
+            projects/BEVFusion/deploy/native_cpp
       - name: Validate result JSON
         run: |
-          for result in projects/CenterPointDeployment/results/*.json; do
+          for result in projects/CenterPointDeployment/results/*.json projects/BEVFusion/deploy/native_cpp/results/*.json projects/BEVFusion/deploy/native_cpp/settings.example.json; do
             python -m json.tool "${result}" >/dev/null
           done
       - name: Check shell syntax
         run: |
-          find projects/CenterPointDeployment -type f -name '*.sh' -print0 \
+          find projects/CenterPointDeployment projects/BEVFusion/deploy/native_cpp -type f -name '*.sh' -print0 \
             | xargs -0 -r bash -n
       - name: Reject generated model and dataset artifacts
         run: |
           if git ls-files | grep -E \
-            '(^|/)(data|checkpoints|work_dirs)/|\.(pth|pt|onnx|engine|plan|npz|cpd)$'; then
+            '(^|/)(data|checkpoints|work_dirs)/|\.(pth|pt|onnx|engine|plan|npz|cpd|f16|f32|so)$'; then
             echo 'Generated model or dataset artifact is tracked.' >&2
             exit 1
           fi

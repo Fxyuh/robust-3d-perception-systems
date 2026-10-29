@@ -1,0 +1,16 @@
+{
+  "dataset": "nuScenes v1.0-mini val",
+  "count": 81,
+  "AP": {
+    "car": 0.9078844069036129,
+    "truck": 0.7118678824905016,
+    "bus": 0.9834131004586315,
+    "trailer": 0.0,
+    "construction_vehicle": 0.0,
+    "pedestrian": 0.9246495777888835,
+    "motorcycle": 0.5549221278882726,
+    "bicycle": 0.45198731425654926,
+    "traffic_cone": 0.7748613203231152,
+    "barrier": 0.0
+  }
+}

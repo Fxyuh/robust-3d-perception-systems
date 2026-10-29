@@ -1,0 +1,27 @@
+{
+  "checkpoint_sha256": "e422916d9a75ea3c1c2c31e98d260ae0bf4fd179d021573054056b504c290ae9",
+  "checkpoint_name": "epoch_4.pth",
+  "seed": 0,
+  "files": {
+    "camera.engine": {
+      "sha256": "d9be46263ada5f0351dc4d7e519b252ab11a9ecfe693c8fbdd03e6259bd78037",
+      "bytes": 143219836
+    },
+    "camera_vtransform.engine": {
+      "sha256": "d7d86811b70793930cb464cdb18da39280ca9f5c78ee9f06faa88280476c2817",
+      "bytes": 767012
+    },
+    "fuser.engine": {
+      "sha256": "2646afe4c2f636bd0c2dc15040703aa6c6a22fbe290a9a41ad7ec391f1c1bdbb",
+      "bytes": 21760460
+    },
+    "head_bbox.engine": {
+      "sha256": "fd3181c0be9212c129c97e450313adf80843c45faa5a74f7dd863171ab9c5fed",
+      "bytes": 7057180
+    },
+    "lidar_sparse.onnx": {
+      "sha256": "d51da6a7ee435db22964ff6217df329df836579a95aecf657ebe96167f9ffade",
+      "bytes": 5394744
+    }
+  }
+}
