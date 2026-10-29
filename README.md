@@ -10,6 +10,15 @@ visualization and multi-object tracking.
 
 ## Robust BEVFusion v1: gated fusion + LiDAR fallback
 
+[![BEVFusion v1: native inference under sensor failure](projects/BEVFusion/deploy/native_cpp/v1/docs/assets/bevfusion_v1_demo.gif)](projects/BEVFusion/deploy/native_cpp/v1/docs/assets/bevfusion_v1_demo.mp4)
+
+[Watch MP4](projects/BEVFusion/deploy/native_cpp/v1/docs/assets/bevfusion_v1_demo.mp4) · [Download interactive demo ZIP](projects/BEVFusion/deploy/native_cpp/v1/docs/demo/bevfusion_v1_interactive.zip?raw=true) · [Download single HTML](projects/BEVFusion/deploy/native_cpp/v1/docs/demo/bevfusion_v1_interactive.html?raw=true)
+
+The GIF/video show actual saved native predictions. To interact, download the ZIP,
+extract it and double-click the HTML file; no server/model is required. GitHub
+does not execute HTML in the repository view. The compact demo has 12 selected
+frames per condition; each reported metric uses all 81 validation frames.
+
 The deployed v1 uses the frozen learned reliability gate when cameras remain
 available and the official LiDAR-only expert when all six cameras fail. Both
 experts execute through C++/CUDA/TensorRT in a ROS2 node. Six TensorRT engines

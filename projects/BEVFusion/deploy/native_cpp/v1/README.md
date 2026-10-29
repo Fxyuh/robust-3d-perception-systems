@@ -4,6 +4,16 @@ This is the deployed **frozen v1** method: the reliability-gated Camera + LiDAR 
 
 The [frozen contract](frozen_contract.json) records the exact two weight hashes and historical PyTorch results. Export rejects other weights. Architecture, degradation seed and route policy are preserved. No training is performed by these tools.
 
+## Watch or try the demo
+
+[![Real native v1 inference replay](docs/assets/bevfusion_v1_demo.gif)](docs/assets/bevfusion_v1_demo.mp4)
+
+[MP4 video](docs/assets/bevfusion_v1_demo.mp4) · [Interactive demo ZIP](docs/demo/bevfusion_v1_interactive.zip?raw=true) · [Single HTML](docs/demo/bevfusion_v1_interactive.html?raw=true)
+
+The README GIF previews three actual deployment conditions; the MP4 is a 1280x720 H.264 clip of about 19 seconds. Download the ZIP, extract it, then double-click `bevfusion_v1_interactive.html` in your browser. It contains 12 selected frames per condition, supports orbit/playback/condition selection and works without a server or installed model. GitHub's repository view does not execute HTML; the file must be downloaded and opened locally. The full 81-frame local replay remains available through the generated viewer.
+
+These are compact **derived visualization assets**, with additional display-only point/image compression. They are separate from the complete dataset/inference bundles and never enter evaluation. See [the demo manifest](docs/demo/demo_manifest.json) for provenance, video properties and hashes.
+
 ## Measured native results
 
 Each row uses all 81 nuScenes v1.0-mini val frames and degradation seed 0.
@@ -69,4 +79,4 @@ python3 -m http.server 8766 --bind 127.0.0.1 \
 
 Open `http://localhost:8766/`. The viewer shows **saved actual native predictions**, not a live inference service. It supports three conditions, six camera images and projected boxes, 3D point-cloud orbit/zoom, frame playback and a display-only confidence threshold. Display point sampling uses the same baseline sampling rate, so sparse inputs remain visibly sparser. Display filtering never changes evaluation results.
 
-Checkpoints, engines, binary inputs, prediction files, images and generated viewer datasets belong outside Git. Only source and small aggregate result files are included here.
+Checkpoints, engines, binary inputs, full prediction files, raw dataset images and complete 81-frame viewer datasets remain outside Git. Source, small aggregate results and the explicitly published compact demo assets are included here.

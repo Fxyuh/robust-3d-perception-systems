@@ -1,0 +1,58 @@
+{
+  "method": "frozen Robust BEVFusion v1 native inference",
+  "source": "actual saved native ROS2 predictions",
+  "conditions": [
+    "normal",
+    "camera_drop_3_lidar_drop_75",
+    "camera_drop_6_lidar_drop_75"
+  ],
+  "selected_dataset_indices": [
+    0,
+    3,
+    6,
+    9,
+    12,
+    15,
+    18,
+    21,
+    24,
+    27,
+    30,
+    33
+  ],
+  "frames_per_condition": 12,
+  "total_selected_frames": 36,
+  "full_evaluation_frames_per_condition": 81,
+  "video": {
+    "frames": 36,
+    "fps": 1.8524172329689104,
+    "duration_seconds": 19.434066666666666,
+    "width": 1280,
+    "height": 720,
+    "fourcc": "h264"
+  },
+  "offline_html": "self-contained selected display data; no server or model runtime required",
+  "data_scope": "Derived demonstration assets only; excludes raw dataset, model weights and complete inference input bundles",
+  "files": {
+    "assets/bevfusion_v1_demo.mp4": {
+      "bytes": 460183,
+      "sha256": "590e2bb86e029269359be73e7e0df04aec259d91d413efe6699ee6467b95caf6"
+    },
+    "assets/bevfusion_v1_demo.gif": {
+      "bytes": 2230751,
+      "sha256": "6aaec6951f99add616ba99d7685b0c8e4b4407a6f6a156f3b996f90aaa5ce400"
+    },
+    "assets/bevfusion_v1_poster.jpg": {
+      "bytes": 136430,
+      "sha256": "c104617d897a8b9b1484e894b375ab95478038c8bbd19f9f2c073f315e42291c"
+    },
+    "demo/bevfusion_v1_interactive.html": {
+      "bytes": 2578739,
+      "sha256": "4a2b9b09467e9c801a3f0da86004b8f1aaa13115c0bea75619a75b18ac39f170"
+    },
+    "demo/bevfusion_v1_interactive.zip": {
+      "bytes": 1270491,
+      "sha256": "85c446a67c67c6c985311059e12bd2b20a619d49cc61a0e8b7557f8b7bad9fd5"
+    }
+  }
+}

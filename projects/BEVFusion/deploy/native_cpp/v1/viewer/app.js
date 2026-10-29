@@ -49,8 +49,7 @@ async function loadFrame(){
  const id=++requestId;
  try{
  const spec=manifest.conditions[condition],frame=spec.frames[index];
- const response=await fetch(frame);if(!response.ok)throw Error("回放帧读取失败");
- const data=await response.json();if(id!==requestId)return;
+ let data; if(window.BEVFUSION_DEMO_DATA){data=window.BEVFUSION_DEMO_DATA.frames[frame];}else{const response=await fetch(frame);if(!response.ok)throw Error("回放帧读取失败");data=await response.json();}if(id!==requestId)return;
  const images=await Promise.all(data.cameras.map(camera=>new Promise(resolve=>{const im=new Image();if(!camera.image){resolve(im);return;}im.onload=()=>resolve(im);im.onerror=()=>resolve(im);im.src=camera.image;})));
  if(id!==requestId)return;current=data;images.forEach((im,i)=>cameraViews[i].image=im);
  $("route").textContent=data.route==="lidar_fallback"?"LiDAR-only 回退":"可靠性门控融合";$("route").classList.toggle("fallback",data.route==="lidar_fallback");
@@ -75,7 +74,7 @@ scene.addEventListener("wheel",event=>{event.preventDefault();zoom=Math.max(.4,M
 window.addEventListener("resize",renderScene);
 async function initialize(){
  try{
- const response=await fetch("manifest.json");if(!response.ok)throw Error("没有找到本地回放数据");manifest=await response.json();
+ if(window.BEVFUSION_DEMO_DATA){manifest=window.BEVFUSION_DEMO_DATA.manifest;}else{const response=await fetch("manifest.json");if(!response.ok)throw Error("没有找到本地回放数据");manifest=await response.json();}
  const names=manifest.camera_names;
  cameraViews=names.map(name=>{const card=document.createElement("div");card.className="camera";const title=document.createElement("div");title.className="label";const text=document.createElement("span");text.textContent=name;const label=document.createElement("span");title.append(text,label);const canvas=document.createElement("canvas");canvas.width=704;canvas.height=256;canvas.setAttribute("aria-label",name+" 相机与检测框");card.append(title,canvas);$("cameras").append(card);return{canvas,label,image:new Image()};});
  manifest.conditions.forEach((spec,i)=>{const button=document.createElement("button");button.textContent=spec.label;button.classList.toggle("active",i===0);button.setAttribute("aria-pressed",i===0?"true":"false");button.onclick=()=>{stop();condition=i;index=Math.min(index,spec.frames.length-1);[...$("conditions").children].forEach((b,j)=>{b.classList.toggle("active",j===i);b.setAttribute("aria-pressed",j===i?"true":"false");});$("frame").max=spec.frames.length-1;loadFrame();};$("conditions").append(button);});
