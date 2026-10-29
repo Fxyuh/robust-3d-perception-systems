@@ -4,6 +4,7 @@ from pathlib import Path
 import json
 p = parser(__doc__)
 p.add_argument("--data-root", required=True)
+p.add_argument("--lidar-only", action="store_true")
 p.add_argument("--inference-dir", type=Path, required=True)
 p.add_argument("--output-dir", type=Path, required=True)
 args = setup(p.parse_args())
@@ -24,6 +25,8 @@ args.output_dir.mkdir(parents=True, exist_ok=False)
 metric_cfg = dict(cfg.test_evaluator)
 metric_cfg["jsonfile_prefix"] = str(args.output_dir / "nuscenes_results")
 evaluator = METRICS.build(metric_cfg)
+if args.lidar_only:
+    evaluator.modality = dict(use_camera=False, use_lidar=True)
 evaluator.dataset_meta = dataset.metainfo
 for ordinal, entry in enumerate(entries, 1):
     index = entry["dataset_index"]

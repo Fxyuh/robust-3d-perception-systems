@@ -27,9 +27,11 @@ jobs:
             projects/BEVFusion/deploy/native_cpp
       - name: Validate result JSON
         run: |
-          for result in projects/CenterPointDeployment/results/*.json projects/BEVFusion/deploy/native_cpp/results/*.json projects/BEVFusion/deploy/native_cpp/settings.example.json; do
+          for result in projects/CenterPointDeployment/results/*.json projects/BEVFusion/deploy/native_cpp/results/*.json projects/BEVFusion/deploy/native_cpp/settings.example.json projects/BEVFusion/deploy/native_cpp/v1/results/*.json projects/BEVFusion/deploy/native_cpp/v1/frozen_contract.json projects/BEVFusion/deploy/native_cpp/v1/settings.example.json; do
             python -m json.tool "${result}" >/dev/null
           done
+      - name: Check viewer JavaScript syntax
+        run: node --check projects/BEVFusion/deploy/native_cpp/v1/viewer/app.js
       - name: Check shell syntax
         run: |
           find projects/CenterPointDeployment projects/BEVFusion/deploy/native_cpp -type f -name '*.sh' -print0 \

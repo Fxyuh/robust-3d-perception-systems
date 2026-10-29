@@ -1,0 +1,31 @@
+{
+  "normal": {
+    "points_before": 0,
+    "points_after": 0,
+    "dropped_camera_counts": {}
+  },
+  "camera_drop_3_lidar_drop_75": {
+    "points_before": 19756228,
+    "points_after": 4940303,
+    "dropped_camera_counts": {
+      "CAM_FRONT_LEFT": 43,
+      "CAM_BACK_LEFT": 41,
+      "CAM_BACK_RIGHT": 47,
+      "CAM_BACK": 40,
+      "CAM_FRONT": 30,
+      "CAM_FRONT_RIGHT": 42
+    }
+  },
+  "camera_drop_6_lidar_drop_75": {
+    "points_before": 19756228,
+    "points_after": 4940303,
+    "dropped_camera_counts": {
+      "CAM_FRONT": 81,
+      "CAM_FRONT_RIGHT": 81,
+      "CAM_FRONT_LEFT": 81,
+      "CAM_BACK": 81,
+      "CAM_BACK_LEFT": 81,
+      "CAM_BACK_RIGHT": 81
+    }
+  }
+}

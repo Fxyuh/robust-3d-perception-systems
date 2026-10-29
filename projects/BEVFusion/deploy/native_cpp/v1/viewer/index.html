@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Robust BEVFusion v1 · 部署回放</title><link rel="stylesheet" href="style.css"></head>
+<body><main>
+<header><div><div class="eyebrow">实际 C++ / CUDA / TensorRT 部署输出</div><h1>Robust BEVFusion <span>v1</span></h1><p>六路相机、点云与检测框，同一帧一起看。</p></div><div class="live"><span></span>本地实测回放</div></header>
+<nav id="conditions" aria-label="输入退化条件"></nav>
+<section class="stats" aria-live="polite"><div><small>当前推理分支</small><strong id="route">加载中</strong></div><div><small>本帧模型耗时</small><strong id="latency">—</strong></div><div><small>可用相机 / 输入点数</small><strong id="sensors">—</strong></div><div><small>该条件全 81 帧 mAP / NDS</small><strong id="metrics">—</strong></div></section>
+<section class="stage-grid">
+<div class="scene-panel"><div class="panel-head"><h2>点云与三维检测框</h2><div><button id="top" class="quiet">俯视</button><button id="reset" class="quiet">复位</button></div></div><canvas id="scene" aria-label="可旋转的点云和三维检测框"></canvas><div class="scene-caption"><span>拖动旋转 · 滚轮缩放</span><span id="visible-count"></span></div></div>
+<div><div class="panel-head"><h2>相机输入与投影框</h2><span class="hint">缺失视角会标灰</span></div><div id="cameras" class="camera-grid"></div></div>
+</section>
+<section class="playback"><button id="play" class="play">▶ 播放</button><div class="timeline"><div class="timeline-label"><span id="frame-label">帧 1 / 81</span><span>nuScenes mini val · 两个场景</span></div><input id="frame" type="range" min="0" max="80" value="0" aria-label="回放帧"></div><label class="threshold">显示置信度 <output id="threshold-value">0.30</output><input id="threshold" type="range" min="0.05" max="0.8" step="0.05" value="0.3" aria-label="显示置信度阈值"></label></section>
+<footer><span>点云仅为展示做抽样；评测使用完整输入。显示阈值不影响 mAP / NDS。</span><span id="status" role="status">正在加载真实回放数据…</span></footer>
+</main><script src="app.js"></script></body></html>

@@ -1,5 +1,7 @@
 # BEVFusion native inference and ROS2 reproduction
 
+> Current frozen gate + LiDAR fallback deployment: [Robust BEVFusion v1](v1/README.md). This parent page documents the earlier sensor-dropout Robust epoch-4 checkpoint.
+
 This integration exports a user-supplied MMDetection3D BEVFusion Camera + LiDAR checkpoint into four TensorRT engines and a native CUDA sparse-convolution model, then runs the complete model forward path in a C++ ROS2 node. PyTorch is used for export and offline evaluation. The detector architecture is the official MMDetection3D v1.4.0 model.
 
 The runtime uses NVIDIA CUDA-BEVFusion at commit `7c1623f234d5a9794fd862c9456f68f87ae7b900`. See [third-party attribution](THIRD_PARTY_NOTICES.md). No detector, weights, dataset, engine or native third-party library is vendored here.

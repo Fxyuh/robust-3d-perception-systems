@@ -24,4 +24,14 @@ target_link_libraries(bevfusion_native_node "${BEVFUSION_CORE_LIBRARY}" CUDA::cu
 set_target_properties(bevfusion_native_node PROPERTIES
   BUILD_RPATH "${BEVFUSION_CORE_DIR}" INSTALL_RPATH "${BEVFUSION_CORE_DIR}")
 install(TARGETS bevfusion_native_node DESTINATION lib/${PROJECT_NAME})
+get_filename_component(BEVFUSION_DEPLOY_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../.." ABSOLUTE)
+add_executable(bevfusion_v1_node "${BEVFUSION_DEPLOY_ROOT}/v1/v1_node.cpp")
+target_include_directories(bevfusion_v1_node PRIVATE
+  "${BEVFUSION_SOURCE_DIR}/CUDA-BEVFusion/src"
+  "${BEVFUSION_SOURCE_DIR}/libraries/3DSparseConvolution/libspconv/include")
+ament_target_dependencies(bevfusion_v1_node rclcpp std_msgs)
+target_link_options(bevfusion_v1_node PRIVATE -Wl,--allow-shlib-undefined)
+target_link_libraries(bevfusion_v1_node "${BEVFUSION_CORE_LIBRARY}" CUDA::cudart)
+set_target_properties(bevfusion_v1_node PROPERTIES BUILD_RPATH "${BEVFUSION_CORE_DIR}" INSTALL_RPATH "${BEVFUSION_CORE_DIR}")
+install(TARGETS bevfusion_v1_node DESTINATION lib/${PROJECT_NAME})
 ament_package()

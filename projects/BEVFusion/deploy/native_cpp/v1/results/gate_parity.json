@@ -1,0 +1,26 @@
+{
+  "conditions": {
+    "normal": {
+      "max_abs_per_map": [
+        0.0,
+        0.0,
+        2.384185791015625e-07
+      ],
+      "coverage_differing_cells": 0
+    },
+    "camera_drop_3_lidar_drop_75": {
+      "max_abs_per_map": [
+        5.960464477539063e-08,
+        0.0,
+        2.384185791015625e-07
+      ],
+      "coverage_differing_cells": 0
+    }
+  },
+  "gate_trunk": {
+    "mean_abs": 1.5459407222806476e-05,
+    "max_abs": 0.0015553329139947891,
+    "relative_l2": 0.001621645875275135,
+    "correlation": 0.9999985830320515
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "car": 0.9227078868785226,
+    "truck": 0.8166892018834688,
+    "bus": 0.9945595312826954,
+    "trailer": 0.0,
+    "construction_vehicle": 0.0,
+    "pedestrian": 0.9227477464357179,
+    "motorcycle": 0.690438306986938,
+    "bicycle": 0.5455505717536715,
+    "traffic_cone": 0.8039916396925842,
+    "barrier": 0.0
+  },
+  "camera_drop_3_lidar_drop_75": {
+    "car": 0.823681403640198,
+    "truck": 0.6949226868452021,
+    "bus": 0.9707051324149011,
+    "trailer": 0.0,
+    "construction_vehicle": 0.0,
+    "pedestrian": 0.8294048755097989,
+    "motorcycle": 0.489569941212633,
+    "bicycle": 0.3734749394703796,
+    "traffic_cone": 0.44586215201334406,
+    "barrier": 0.0
+  },
+  "camera_drop_6_lidar_drop_75": {
+    "car": 0.8345033062054856,
+    "truck": 0.6924243952968596,
+    "bus": 0.9673192635062013,
+    "trailer": 0.0,
+    "construction_vehicle": 0.0,
+    "pedestrian": 0.8314703372172009,
+    "motorcycle": 0.4326664922155212,
+    "bicycle": 0.2974485987875641,
+    "traffic_cone": 0.2709345090721973,
+    "barrier": 0.0
+  }
+}

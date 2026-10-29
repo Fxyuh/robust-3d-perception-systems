@@ -1,0 +1,48 @@
+{
+  "contract": "Robust BEVFusion v1",
+  "weights": {
+    "local_gate": {
+      "name": "iter_242.pth",
+      "sha256": "cb5ac3df7ad43da4af4af50b80ef977448063c8e02244c409032d5aafe5ededd"
+    },
+    "lidar_fallback": {
+      "name": "bevfusion_lidar_voxel0075_second_secfpn_8xb4-cyclic-20e_nus-3d-2628f933.pth",
+      "sha256": "2628f933277774e194932815ea1a5d66a0bd9f69ebc8d9040e8c92760bb6652e"
+    }
+  },
+  "models": {
+    "fusion/camera.engine": {
+      "sha256": "596b34c784a80b9454c9cff9cf4bb46e8e81b11c7ffe4c82fd6f16fd0096d15b",
+      "bytes": 143353116
+    },
+    "fusion/camera_vtransform.engine": {
+      "sha256": "134b3665886dd403f456144a3c6bb4737d6de61f6e401c69c3253ce703f4f3fc",
+      "bytes": 770740
+    },
+    "fusion/fuser.engine": {
+      "sha256": "b000594bf3ce28629eaeb4a3ac55e869c3c897c264a0cbf8d3e160cab2c58278",
+      "bytes": 21867572
+    },
+    "fusion/head_bbox.engine": {
+      "sha256": "03c39853906260571e9df2e132ebe0839485f126bcd18eaef9c7c958f017335d",
+      "bytes": 7181956
+    },
+    "fusion/lidar_sparse.onnx": {
+      "sha256": "5c97a3e7d479878c85afed8d4d590cfe49707fd1d3ce46da0ce4708244385924",
+      "bytes": 5394744
+    },
+    "lidar/trunk.engine": {
+      "sha256": "7a4810d9c7604a4d86733411559d7c94d56fce5fa1ddbb1a90f7841d3bd549bd",
+      "bytes": 18609564
+    },
+    "lidar/head_bbox.engine": {
+      "sha256": "fd8985952166dc8874851bd40c58c3c62531632602c5f2a85e0d2fa641413017",
+      "bytes": 7194412
+    },
+    "lidar/lidar_sparse.onnx": {
+      "sha256": "b1c906a98a8abd543b2967cd0860b2521e8cd3a537b9cf5aa15092c28d61d96a",
+      "bytes": 5394744
+    }
+  },
+  "dense_precision": "FP16 I/O except FP32 reliability cues; internal dense graph FP32"
+}

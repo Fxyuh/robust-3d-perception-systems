@@ -1,0 +1,29 @@
+{
+  "normal": {
+    "checked_indices": [
+      0,
+      80
+    ],
+    "points_exact": true,
+    "normalized_image_fp16_exact": true,
+    "camera_masks_exact": true
+  },
+  "camera_drop_3_lidar_drop_75": {
+    "checked_indices": [
+      0,
+      80
+    ],
+    "points_exact": true,
+    "normalized_image_fp16_exact": true,
+    "camera_masks_exact": true
+  },
+  "camera_drop_6_lidar_drop_75": {
+    "checked_indices": [
+      0,
+      80
+    ],
+    "points_exact": true,
+    "normalized_image_fp16_exact": true,
+    "camera_masks_exact": true
+  }
+}

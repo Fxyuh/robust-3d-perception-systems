@@ -47,7 +47,8 @@ def load_config(args, data_root=None):
     else:
         raise ValueError("Pass --mmdet3d-root or --config")
     cfg = Config.fromfile(str(cfg_path))
-    cfg.model.img_backbone.init_cfg = None
+    if cfg.model.get('img_backbone') is not None:
+        cfg.model.img_backbone.init_cfg = None
     def adapt(dataset):
         if "dataset" in dataset:
             adapt(dataset["dataset"])

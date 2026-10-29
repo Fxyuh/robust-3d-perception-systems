@@ -1,0 +1,102 @@
+{
+  "name": "Robust BEVFusion v1",
+  "evaluation": {
+    "dataset": "nuScenes v1.0-mini val",
+    "scenes": [
+      "scene-0103",
+      "scene-0916"
+    ],
+    "frames": 81,
+    "degradation_seed": 0,
+    "input_only_degradation": true
+  },
+  "headline": {
+    "plain_mAP": 0.3630080501802053,
+    "old_robust_mAP": 0.4069023054046692,
+    "robust_bevfusion_v1_mAP": 0.4360889238117817,
+    "mAP_gain_vs_plain": 0.07308087363157639,
+    "mAP_gain_vs_old_robust": 0.029186618407112508,
+    "NDS_gain_vs_plain": 0.033734744772707714
+  },
+  "table": [
+    {
+      "condition": "normal",
+      "plain": {
+        "mAP": 0.5467565720848814,
+        "NDS": 0.5633828604279213
+      },
+      "old_robust": {
+        "mAP": 0.5338395316219376,
+        "NDS": 0.5522620692366711
+      },
+      "robust_bevfusion_v1": {
+        "mAP": 0.5680200727629682,
+        "NDS": 0.5760877100327619
+      },
+      "official_fusion": {
+        "mAP": 0.5689041784139341,
+        "NDS": 0.5770300797854302
+      },
+      "v1_minus_plain_mAP": 0.0212635006780868,
+      "v1_minus_plain_NDS": 0.01270484960484064,
+      "v1_minus_old_robust_mAP": 0.03418054114103053,
+      "old_robust_minus_plain_mAP": -0.01291704046294373
+    },
+    {
+      "condition": "camera_drop_3_lidar_drop_75",
+      "plain": {
+        "mAP": 0.4205984093047775,
+        "NDS": 0.4818195286655304
+      },
+      "old_robust": {
+        "mAP": 0.4441650714406641,
+        "NDS": 0.4893876065785869
+      },
+      "robust_bevfusion_v1": {
+        "mAP": 0.4668864231928655,
+        "NDS": 0.5082261913433399
+      },
+      "official_fusion": {
+        "mAP": 0.45721511143028676,
+        "NDS": 0.5051628080668096
+      },
+      "v1_minus_plain_mAP": 0.04628801388808801,
+      "v1_minus_plain_NDS": 0.0264066626778095,
+      "v1_minus_old_robust_mAP": 0.022721351752201413,
+      "old_robust_minus_plain_mAP": 0.023566662135886596
+    },
+    {
+      "condition": "camera_drop_6_lidar_drop_75",
+      "plain": {
+        "mAP": 0.3630080501802053,
+        "NDS": 0.46322276596563217
+      },
+      "old_robust": {
+        "mAP": 0.4069023054046692,
+        "NDS": 0.47188926212911386
+      },
+      "robust_bevfusion_v1": {
+        "mAP": 0.4360889238117817,
+        "NDS": 0.4969575107383399
+      },
+      "official_fusion": {
+        "mAP": 0.3955560257653691,
+        "NDS": 0.4770562892136356
+      },
+      "v1_minus_plain_mAP": 0.07308087363157639,
+      "v1_minus_plain_NDS": 0.033734744772707714,
+      "v1_minus_old_robust_mAP": 0.029186618407112508,
+      "old_robust_minus_plain_mAP": 0.043894255224463885
+    }
+  ],
+  "weights": {
+    "local_gate": {
+      "name": "iter_242.pth",
+      "sha256": "cb5ac3df7ad43da4af4af50b80ef977448063c8e02244c409032d5aafe5ededd"
+    },
+    "lidar_fallback": {
+      "name": "bevfusion_lidar_voxel0075_second_secfpn_8xb4-cyclic-20e_nus-3d-2628f933.pth",
+      "sha256": "2628f933277774e194932815ea1a5d66a0bd9f69ebc8d9040e8c92760bb6652e"
+    }
+  }
+}

@@ -5,3 +5,5 @@
 - TensorRT, CUDA, ROS2 Humble, PyTorch, MMCV, MMEngine, MMDetection and nuScenes devkit/dataset retain their respective licenses. No datasets or pretrained weights are redistributed.
 
 The work delivered here is the checkpoint export and interface adaptation, reproducibility tooling, C++ ROS2 adapter, input replay, precision/latency validation and reporting. The model architecture and underlying native inference algorithms are upstream work. TensorRT engines are compiled locally from a user-supplied checkpoint.
+
+Frozen v1: the trained ReliabilityConvFuser and input-degradation reference are this project's implementation. v1_core.hpp follows the upstream public module orchestration and adds reliability inputs and explicit expert selection; the underlying NVIDIA CUDA/sparse algorithms remain upstream work.

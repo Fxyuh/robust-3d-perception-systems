@@ -8,26 +8,34 @@ covers native C++/CUDA/TensorRT inference, a ROS2 adapter and reproducible
 mini-val evaluation. The CenterPoint milestone covers LiDAR detection,
 visualization and multi-object tracking.
 
-## BEVFusion Camera + LiDAR deployment
+## Robust BEVFusion v1: gated fusion + LiDAR fallback
 
-- Export and interface adaptation from the project's Robust epoch-4 checkpoint.
-- Four TensorRT engines plus NVIDIA's native CUDA sparse-convolution runtime.
-- C++ ROS2 inference node and automated export/build/replay/evaluation workflow.
-- Clean official MMDetection3D v1.4.0 source verification using existing dependencies.
+The deployed v1 uses the frozen learned reliability gate when cameras remain
+available and the official LiDAR-only expert when all six cameras fail. Both
+experts execute through C++/CUDA/TensorRT in a ROS2 node. Six TensorRT engines
+and two CUDA sparse models are exported from the exact frozen weight hashes.
 
-| Backend (81 mini-val frames) | mAP | NDS | Model P50 / P95 |
+| Input condition (81 mini-val frames, seed 0) | PyTorch v1 mAP | Native v1 mAP / NDS | Native model P50 / P95 |
 | --- | ---: | ---: | ---: |
-| Historical PyTorch baseline | 0.535668 | 0.554942 | 188.949 / 196.393 ms |
-| Native C++/CUDA/TensorRT + ROS2 | 0.530959 | 0.550292 | 29.946 / 31.144 ms |
+| Normal | 0.5680 | 0.5697 / 0.5765 | 43.7 / 45.5 ms |
+| 3 cameras off + 75% LiDAR dropout | 0.4669 | 0.4628 / 0.5056 | 32.9 / 34.1 ms |
+| 6 cameras off + 75% LiDAR dropout | 0.4361 | 0.4327 / 0.4953 | 13.1 / 13.9 ms |
 
-ROS2 round-trip P50/P95 is 45.341/55.563 ms. The node accepts preprocessed
-six-camera/LiDAR/calibration bundles. Raw sensor-topic synchronization is outside
-the current interface. Timings exclude offline image preprocessing and come
-from separate local runs; no controlled speedup claim is made.
+The historical Plain reference is 0.3630 mAP under the last condition. The
+PyTorch v1 gain is +0.0731; the native v1 comparison is +0.0697 against that
+historical reference. Full-camera-failure gain comes from the LiDAR-only
+fallback. Training protocols/backend differ, so this is not a controlled
+architecture ablation or a gate-only gain.
 
-See the [BEVFusion reproduction guide](projects/BEVFusion/deploy/native_cpp/README.md),
-[machine-readable results](projects/BEVFusion/deploy/native_cpp/results/) and
+The local replay shows real native predictions: six camera views, projected
+boxes, a rotatable 3D point cloud, input health, routing and timing. Raw sensor
+topic synchronization is outside the current node interface.
+
+See the [v1 reproduction and viewer guide](projects/BEVFusion/deploy/native_cpp/v1/README.md),
+[exact results](projects/BEVFusion/deploy/native_cpp/v1/results/) and
 [attribution](projects/BEVFusion/deploy/native_cpp/THIRD_PARTY_NOTICES.md).
+The [earlier epoch-4 deployment](projects/BEVFusion/deploy/native_cpp/README.md)
+is retained separately; its timing is not attributed to v1.
 
 ## CenterPoint LiDAR deployment
 
